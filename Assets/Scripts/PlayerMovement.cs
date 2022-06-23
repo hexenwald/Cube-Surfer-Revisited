@@ -25,17 +25,27 @@ public class PlayerMovement : MonoBehaviour
             this.transform.Translate(_horizontalMovement, 0, _movementSpeed * Time.deltaTime);
         } */
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            _isMoving = true;
-        }
+        Inputs();
 
+        Movement();
+
+        MaxSwerveLimit();
+    }
+
+    private void Movement()
+    {
         if (_isMoving == true)
         {
             this.transform.Translate(0, 0, _movementSpeed * Time.deltaTime);
         }
+    }
 
-        MaxSwerveLimit();
+    private void Inputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            _isMoving = true;
+        }
     }
 
     private void MaxSwerveLimit()

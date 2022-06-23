@@ -10,9 +10,15 @@ public class Collector : MonoBehaviour
 
     void Update()
     {
+        transformPositions();
+    }
+
+    private void transformPositions()
+    {
         player.transform.position = new Vector3(transform.position.x, _yPos + 1, transform.position.z);
         this.transform.localPosition = new Vector3(0, -_yPos, 0);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Cube" && other.gameObject.GetComponent<Cubes>().IsCollected() == false)

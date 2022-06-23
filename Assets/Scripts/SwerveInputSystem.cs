@@ -10,6 +10,11 @@ public class SwerveInputSystem : MonoBehaviour
 
     void Update()
     {
+        Inputs();
+    }
+
+    private void Inputs()
+    {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             _lastFingerPosX = Input.mousePosition.x;
